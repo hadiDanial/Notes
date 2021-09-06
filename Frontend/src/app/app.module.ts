@@ -14,6 +14,7 @@ import { ColorPickerComponent } from './notes/components/color-picker/color-pick
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { IconComponent } from './notes/components/icon/icon.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     NotesListItemComponent,
     ColorBoxComponent,
     ColorPickerComponent,
+    IconComponent,
   ],
   imports: [
     BrowserModule,
