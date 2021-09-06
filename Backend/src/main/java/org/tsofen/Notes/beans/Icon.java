@@ -1,5 +1,7 @@
 package org.tsofen.Notes.beans;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Icon
 {
 	Normal("Normal"), Warning("Warning"), Flag("Flag");
@@ -26,6 +28,7 @@ public enum Icon
 		return Normal;
 	}
 
+    @JsonValue
 	public String getIconTitle()
 	{
 		return iconTitle;

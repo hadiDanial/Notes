@@ -1,5 +1,7 @@
 package org.tsofen.Notes.beans;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Color
 {
 	Grey("#f2f2f2"), Blue("#a3a3ff"), Cream("#fff7de"), Lightred("#ffb6a3"), Green("#b8ffb8"), Pink("#ffb8f3");
@@ -10,7 +12,7 @@ public enum Color
 		this.colorValue = colorValue;
 	}
 	
-	
+    @JsonValue
 	public String getColorValue()
 	{
 		return colorValue;
