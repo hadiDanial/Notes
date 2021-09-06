@@ -1,19 +1,31 @@
 <mat-card class="example-card" [style]="backgroundColor">
-    <table>
+    <table style="width: 100%;">
         <tr>
             <td>
                 <mat-card-title>
-                    <div style="text-align: left;">
-                        {{note.title}}
-                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="text-align: left; width: 45px; vertical-align: bottom;">
+                                    <app-icon [priority]="note.priority"></app-icon>
+                                </div>
+                            </td>
+                            <td style="text-align: right;">
+                                <div>
+                                    {{note.title}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </mat-card-title>
+                <div style="margin-left: 52px;">({{readStatus}}) - {{note?.generationDate | date:'medium'}}</div>
             </td>
-            <td>
+            <td style="text-align: right;">
                 <button mat-raised-button color="primary" (click)="viewNote()">View</button>
+                <button mat-raised-button color="primary" (click)="deleteNote()"
+                    style="margin-left: 20px;">Delete</button>
             </td>
-            <td>
-                <button mat-raised-button color="primary" (click)="deleteNote()">Delete</button>
-            </td>
+
         </tr>
 
 

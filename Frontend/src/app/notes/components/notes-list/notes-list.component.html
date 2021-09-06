@@ -1,1 +1,16 @@
-<p>notes-list works!</p>
+<table class="note">
+    <tr style="width: 100%;">
+        <td style="text-align: right;">
+            <button mat-raised-button color="primary" routerLink="/note">New Note</button>
+        </td>
+    </tr>
+    <tr style="width: 100%;">
+        <td style="width: 100%;">
+            <ul style="width: 100%;">
+                <li *ngFor="let note of notes" style="width: 100%;">
+                    <app-notes-list-item [note]="note" (emitter)="updateList($event)"></app-notes-list-item>
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
