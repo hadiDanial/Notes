@@ -24,17 +24,8 @@ export class NoteService
   }
 
   
-  public createNote(title: string, body: string, priority: number, readFlag: boolean, color: Color, icon: Icon): Observable<boolean>
+  public createNote(note:Note): Observable<boolean>
   {
-    let data = new Map<string, any>();
-    let note : Note = new Note(title,body,priority,readFlag,color,icon);
-    data.set("title", title)
-    .set("body", body)
-    .set("priority", priority)
-    .set("readFlag", readFlag)
-    .set("color", color.valueOf())
-    .set("icon", icon.valueOf());
-    alert(JSON.stringify(data))
     return this.webService.postJSON<boolean>("notes/createNote", JSON.stringify(note));
   }
   

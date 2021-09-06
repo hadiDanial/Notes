@@ -54,7 +54,7 @@ export class NoteComponent implements OnInit
     }
     else
     {
-      let obs = this.noteService.createNote(this.note.title, this.note.body, this.note.priority, false, this.note.color, this.note.icon);
+      let obs = this.noteService.createNote(this.note);
       // this.alert.loadingMenu("Saving...", obs, ()=>
       // {
       //   this.alert.alert("Note saved successfully", 2000,false,'center','success');
