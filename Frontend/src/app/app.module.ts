@@ -13,6 +13,7 @@ import { ColorBoxComponent } from './notes/components/color-box/color-box.compon
 import { ColorPickerComponent } from './notes/components/color-picker/color-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     NotesListComponent,
     NotesListItemComponent,
     ColorBoxComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule, 
     MatSliderModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
