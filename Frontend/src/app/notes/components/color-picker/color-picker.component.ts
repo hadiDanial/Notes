@@ -26,11 +26,8 @@ export class ColorPickerComponent implements OnInit {
 
   changeColor(color:Color)
   {
-    if(color != Color.Black)
-    {
-      this.selectedColor = color;
-      this.selectColor.emit(this.selectedColor);
-    }
+    this.selectedColor = color;
+    this.selectColor.emit(this.selectedColor);   
   }
 
 }
