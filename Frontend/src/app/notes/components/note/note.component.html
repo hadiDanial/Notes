@@ -1,16 +1,16 @@
 <div class="note" [style]="backgroundColor">
-    <app-color-box></app-color-box>
-    <form class="example-form">
+    <div style="padding: 50px; margin: auto;">
+
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Title</mat-label>
-            <input matInput value="" placeholder="Enter title...">
+            <input matInput value="" placeholder="Enter title..." (change)="updateTitle($event)">
         </mat-form-field>
         <p>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Body</mat-label>
-                <textarea matInput placeholder="Enter body..." rows="15"></textarea>
+                <textarea matInput placeholder="Enter body..." rows="15" (change)="updateBody($event)"></textarea>
             </mat-form-field>
-
+            
         </p>
         <table style="width: 100%;">
             <tr>
@@ -18,12 +18,21 @@
                     <mat-label >Priority</mat-label>
                 </td>
                 <td colspan="2" style="width: 85%; text-align: right;">
-                    <mat-slider style="width: 100%;" thumbLabel tickInterval="1" min="1" max="5" step="1" value="1"></mat-slider>
+                    <mat-slider style="width: 100%;" thumbLabel tickInterval="1" min="1" max="5" step="1" value="1" (change)="setPriority($event)"></mat-slider>
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <app-color-picker style="width: 100%;" (selectColor)="updateBackgroundColor($event)"></app-color-picker>
 
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td colspan="2"  style="text-align: right;">
+                    <button mat-raised-button color="primary" (click)="createNote()">Create</button>
+                </td>
             </tr>
         </table>
-
-    </form>
-
+    </div>
 </div>
