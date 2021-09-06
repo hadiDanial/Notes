@@ -3,14 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NoteComponent } from './notes/components/note/note.component';
+import { NotesListComponent } from './notes/components/notes-list/notes-list.component';
+import { NotesListItemComponent } from './notes/components/notes-list-item/notes-list-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+import { ColorBoxComponent } from './notes/components/color-box/color-box.component';
+import { ColorPickerComponent } from './notes/components/color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NoteComponent,
+    NotesListComponent,
+    NotesListItemComponent,
+    ColorBoxComponent,
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule, 
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
