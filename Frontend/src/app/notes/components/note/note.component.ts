@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Color } from '../../models/Color';
 import { Note } from '../../models/Note';
 import { AlertService } from '../../services/alert.service';
@@ -12,12 +13,34 @@ import { NoteService } from '../../services/note.service';
 export class NoteComponent implements OnInit
 {
   note: Note = new Note();
-  editing = false;
+  editing = true;
+  viewing = (this.route.snapshot.paramMap.get('viewing')) == "true";
   backgroundColor = "background-color: " + Color.Grey;
-  constructor(private alert: AlertService, private noteService: NoteService) { }
+  title = "Create Note";
+  buttonText = "Create";
+  constructor(private alert: AlertService, private noteService: NoteService, private route : ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void
   {
+    if(this.viewing)
+    {
+      this.note = this.noteService.currentNote;
+      this.note.readFlag = true;
+      if(this.note.id != undefined)
+      { 
+        this.noteService.setReadFlag(this.note.id).subscribe(()=>{});
+      }
+      if(this.note.id == undefined)
+      {
+        this.router.navigate(['/home']);
+      }
+      this.title = "View Note";
+      this.buttonText = "Update"
+    }
+    else if(this.note.id != undefined)
+    {
+      this.title = (this.editing) ? "Edit Note" : "View Note";
+    }
     if (this.note.color != undefined)
     {
       this.updateBackgroundColor(this.note.color);
@@ -37,16 +60,17 @@ export class NoteComponent implements OnInit
   }
   updateBackgroundColor(color: Color)
   {
-
-    this.note.color = color;
-    this.backgroundColor = "background-color: " + this.note.color + ";"
-
+    if(this.editing)
+    {
+      this.note.color = color;
+      this.backgroundColor = "background-color: " + this.note.color + ";"
+    }
   }
   setPriority(priority: any)
   {
     this.note.priority = priority.value;
   }
-  createNote()
+  saveNote()
   {
     if (this.note.title == "" || this.note.body == "")
     {
@@ -54,27 +78,28 @@ export class NoteComponent implements OnInit
     }
     else
     {
-      let obs = this.noteService.createNote(this.note);
-      // this.alert.loadingMenu("Saving...", obs, ()=>
-      // {
-      //   this.alert.alert("Note saved successfully", 2000,false,'center','success');
-      // }
-      // ,()=>
-      // {
-      //   this.alert.alert("Failed to save", 2000,false,'center','error');
-      // })
+      let obs;
+      if(this.viewing)
+      {
+        obs = this.noteService.updateNote(this.note);
+      }
+      else
+      {
+        obs = this.noteService.createNote(this.note);
+      }
       obs.subscribe(res =>
       {
         if (res)
         {
-          this.alert.alert("Note saved successfully", 2000, false, 'center', 'success');
+          this.alert.alertWithCallback("Note saved successfully", 1500, false, ()=>{
+            this.router.navigate(['/notes/']);
+          }, 'center', 'success');
         }
         else
         {
           this.alert.alert("Failed to save", 2000, false, 'center', 'error');
-
         }
-      })
+      });
     }
   }
 }
