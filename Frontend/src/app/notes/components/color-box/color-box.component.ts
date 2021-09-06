@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Color } from '../../models/Color';
 
 @Component({
@@ -6,14 +6,24 @@ import { Color } from '../../models/Color';
   templateUrl: './color-box.component.html',
   styleUrls: ['./color-box.component.scss']
 })
-export class ColorBoxComponent implements OnInit {
+export class ColorBoxComponent implements OnInit
+{
   @Input()
-  public color: string = Color.Cream;
-  colorStyle:string = "background-color:" + Color.Cream;
+  public color : Color = Color.Cream;
+  colorStyle: string = "background-color:" + Color.Cream;
+
+  @Output()
+  onClick: EventEmitter<Color> = new EventEmitter<Color>();
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.colorStyle = "background-color:" + this.color + ";";
   }
 
+  click()
+  {
+    this.onClick.emit(this.color);
+  }
 }

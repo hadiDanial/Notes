@@ -1,1 +1,10 @@
-<p>color-picker works!</p>
+
+<div style="width: 100%;">
+    <table style="width: 100%;">
+        <tr style="text-align: center; margin: auto;">
+            <td *ngFor="let color of colors">
+                <app-color-box [color]="color" (onClick)="changeColor($event)"></app-color-box>
+            </td>
+        </tr>
+    </table>
+</div>

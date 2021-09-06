@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { ColorBoxComponent } from './notes/components/color-box/color-box.component';
 import { ColorPickerComponent } from './notes/components/color-picker/color-picker.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { ColorPickerComponent } from './notes/components/color-picker/color-pick
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule, 
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
