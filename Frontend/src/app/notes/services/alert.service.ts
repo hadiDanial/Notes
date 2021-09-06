@@ -32,22 +32,26 @@ export class AlertService {
  
    loadingMenu(message: string, obs: Observable<boolean>, successCallback: Function, failureCallback: Function)
    {
-     swal.fire({
-       text: message,
-       allowOutsideClick: false,
-       showCloseButton: false,
-       onBeforeOpen: () =>
-       {
-         swal.showLoading()
-         obs.subscribe(() =>
-         {
-           successCallback();
-         },
-           () =>
-           {
-             failureCallback();
-           })
-       }
-     } as SweetAlertOptions);
+    const options = {
+      text: message,
+
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      showCloseButton: false,
+      onBeforeOpen: () =>
+      {
+        swal.showLoading()
+        obs.subscribe(() =>
+        {
+          successCallback();
+        },
+          () =>
+          {
+            failureCallback();
+          })
+      }
+      
+    } as SweetAlertOptions;
+     swal.fire(options);
    }
 }

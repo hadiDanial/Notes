@@ -36,7 +36,7 @@ export class WebService {
     if (bool == true) {
       return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}` + "?" + params.toString(), {}).pipe(catchError(this.handleError));
     }
-    return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}`, JSON.stringify(params), this.config).pipe(catchError(this.handleError));
+    return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}`, data, this.config).pipe(catchError(this.handleError));
   }
   public postJSON<T>(apiRoute: string, data: string): Observable<T> {
     return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}`, data, this.config).pipe(catchError(this.handleError));

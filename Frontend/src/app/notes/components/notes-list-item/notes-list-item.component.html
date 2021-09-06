@@ -1,1 +1,21 @@
-<p>notes-list-item works!</p>
+<mat-card class="example-card" [style]="backgroundColor">
+    <table>
+        <tr>
+            <td>
+                <mat-card-title>
+                    <div style="text-align: left;">
+                        {{note.title}}
+                    </div>
+                </mat-card-title>
+            </td>
+            <td>
+                <button mat-raised-button color="primary" (click)="viewNote()">View</button>
+            </td>
+            <td>
+                <button mat-raised-button color="primary" (click)="deleteNote()">Delete</button>
+            </td>
+        </tr>
+
+
+    </table>
+</mat-card>

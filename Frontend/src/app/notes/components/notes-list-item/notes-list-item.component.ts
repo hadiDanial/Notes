@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Note } from '../../models/Note';
+import { NoteService } from '../../services/note.service';
 
 @Component({
   selector: 'app-notes-list-item',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesListItemComponent implements OnInit {
 
-  constructor() { }
-
+  @Input()
+  note: Note = new Note();
+  backgroundColor = "background-color: " + this.note.color;
+  constructor(private noteService: NoteService) { }
+  
   ngOnInit(): void {
+    this.backgroundColor = "background-color: " + this.note.color;
   }
+  viewNote()
+  {
 
+  }
+  deleteNote()
+  {
+    this.noteService.deleteNote(this.note.id);
+  }
 }
