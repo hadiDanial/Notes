@@ -1,5 +1,7 @@
 package org.tsofen.Notes.beans;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ public class Note
 	private int priority;
 	private boolean readFlag = false;
 	private Color color;
-	private Icon icon;
+	private Date generationDate;
 	public Note()
 	{
 		super();
@@ -82,21 +84,18 @@ public class Note
 		this.color = color;
 	}
 
-	public Icon getIcon()
-	{
-		return icon;
-	}
-
-	public void setIcon(Icon icon)
-	{
-		this.icon = icon;
-	}
-
 	public int getId()
 	{
 		return id;
 	}
-	
-	
-	
+
+	public Date getGenerationDate()
+	{
+		return generationDate;
+	}
+
+	public void setGenerationDate(Date generationDate)
+	{
+		this.generationDate = generationDate;
+	}
 }
