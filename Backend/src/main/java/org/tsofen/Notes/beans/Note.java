@@ -1,5 +1,6 @@
 package org.tsofen.Notes.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ public class Note
 	@GeneratedValue
 	private int id;
 	private String title;
+	@Column(length = 10000)
 	private String body;
 	private int priority;
 	private boolean readFlag = false;

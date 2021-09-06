@@ -14,8 +14,8 @@
                 </mat-form-field>
                 <p>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Body</mat-label>
-                        <textarea matInput placeholder="Enter body..." rows="15"
+                        <mat-label>Body (max 10000 chars)</mat-label>
+                        <textarea maxlength="10000" matInput placeholder="Enter body..." rows="15"
                             (change)="updateBody($event)"></textarea>
                     </mat-form-field>
 
