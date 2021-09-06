@@ -23,23 +23,14 @@ export class WebService {
   constructor(private httpClient: HttpClient) {
   }
 
-
-  public post<T>(apiRoute: string, data: Map<string, any>): Observable<T> {
-    let params = HttpParamsGenerator.insertParams(data);
-    let options = { params: params };
-    // return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}`,JSON.stringify(params),this.config).pipe(catchError(this.handleError));
-    return this.postBool<T>(apiRoute, data, false);
-  }
-  public postBool<T>(apiRoute: string, data: Map<string, any>, bool: boolean): Observable<T> {
-    let params = HttpParamsGenerator.insertParams(data);
-    let options = { params: params };
-    if (bool == true) {
-      return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}` + "?" + params.toString(), {}).pipe(catchError(this.handleError));
-    }
-    return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}`, data, this.config).pipe(catchError(this.handleError));
-  }
   public postJSON<T>(apiRoute: string, data: string): Observable<T> {
     return this.httpClient.post<T>(`${this.ROOT_URL + apiRoute}`, data, this.config).pipe(catchError(this.handleError));
+  }
+  public putJSON<T>(apiRoute: string, data: string): Observable<T> {
+    return this.httpClient.put<T>(`${this.ROOT_URL + apiRoute}`, data);
+  }
+  public deleteJSON<T>(apiRoute: string, data: string): Observable<T> {
+    return this.httpClient.delete<T>(`${this.ROOT_URL + apiRoute}`, {body:data});
   }
 
   public get<T>(apiRoute: string, data: Map<string, any>): Observable<T> {
