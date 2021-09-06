@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.tsofen.Notes.BL.NoteBL;
@@ -25,6 +26,7 @@ public class NoteController
 	{
 		return noteBL.getAllNotes();
 	}
+
 	@GetMapping("getAllNoteTitles")
 	public List<String> getAllNoteTitles()
 	{
@@ -32,9 +34,9 @@ public class NoteController
 	}
 	
 	@PostMapping("createNote")
-	public boolean createNote(String title, String body, int priority, boolean readFlag, String color, String iconTitle)
+	public boolean createNote(@RequestBody String jsonNote)
 	{
-		return noteBL.createNote(title, body, priority, readFlag, color, iconTitle);
+		return noteBL.createNote(jsonNote);
 	}
 	
 	@DeleteMapping("deleteNote")
@@ -48,9 +50,11 @@ public class NoteController
 	{
 		return noteBL.getAllColors();
 	}
+
 	@GetMapping("getAllIcons")
 	public List<String> getAllIcons()
 	{
 		return noteBL.getAllIcons();
 	}
 }
+
