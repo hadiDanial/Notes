@@ -36,6 +36,7 @@ export class NoteComponent implements OnInit
       }
       this.title = "View Note";
       this.buttonText = "Update"
+      this.editing = false;
     }
     else if(this.note.id != undefined)
     {
@@ -43,7 +44,7 @@ export class NoteComponent implements OnInit
     }
     if (this.note.color != undefined)
     {
-      this.updateBackgroundColor(this.note.color);
+      this.updateBackgroundColor(this.note.color, true);
     }
     else
     {
@@ -58,9 +59,9 @@ export class NoteComponent implements OnInit
   {
     this.note.body = body.target.value;
   }
-  updateBackgroundColor(color: Color)
+  updateBackgroundColor(color: Color, forceUpdate = false)
   {
-    if(this.editing)
+    if(this.editing || forceUpdate)
     {
       this.note.color = color;
       this.backgroundColor = "background-color: " + this.note.color + ";"

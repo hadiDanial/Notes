@@ -43,7 +43,8 @@
                             <button mat-raised-button color="primary" routerLink="/notes">Cancel</button>
                         </td>
                         <td style="text-align: right;">
-                            <button mat-raised-button color="primary" (click)="saveNote()">{{buttonText}}</button>
+                            <button *ngIf="!editing" mat-raised-button color="primary" (click)="this.editing = !this.editing">Toggle Editing</button>
+                            <button *ngIf="editing" mat-raised-button color="primary" (click)="saveNote()">{{buttonText}}</button>
                         </td>
                     </tr>
                 </table>
