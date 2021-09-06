@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 65 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,157,-68)">
+        <g id="_3" serif:id="3" transform="matrix(1,0,0,1,-156.169,68.3177)">
+            <path d="M32,0C49.661,0 64,14.339 64,32C64,49.661 49.661,64 32,64C14.339,64 0,49.661 0,32C0,14.339 14.339,0 32,0ZM32,7C39.194,6.446 46.002,8.553 51.041,12.959C56.39,17.635 59.934,24.354 60.371,32C60.395,35.064 60.023,38.047 59.062,40.792C57.578,45.03 54.826,48.63 51.549,51.549C46.391,56.142 39.431,58.538 32,58.07C29.191,58.06 26.512,57.523 23.955,56.766C19.889,55.564 16.072,53.779 12.987,51.013C7.719,46.292 4.19,39.616 3.792,32C3.928,28.206 4.811,24.609 6.349,21.38C7.913,18.097 10.262,15.313 12.968,12.968C18.025,8.586 24.808,6.45 32,7Z"/>
+            <text x="18.466px" y="51.374px" style="font-family:'Arvo-Bold', 'Arvo';font-weight:700;font-size:51px;">3</text>
+        </g>
+    </g>
+</svg>
